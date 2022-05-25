@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="../js/index.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/jogo.css">
+    <title>Alura Jogo da Forca</title>
+</head>
+
+<body onload="iniciarJogo()">
+    <header></header>
+    <div class="container">
+        <main class="center">
+            <canvas id="canvas" height="300"></canvas>
+            <h2></h2>
+            <div class="letras container">
+            </div>
+
+            <div class="letraerrada container">
+                <span class="wrongletter"></span>
+            </div>
+        </main>
+    </div>
+
+    <div class="container">
+
+        <button class="color" onClick="document.location.reload(true);">Novo Jogo</button>
+        <button id="desistir">Desistir</button>
+
+    </div>
+    <script>
+        let c = document.getElementById("canvas")
+        if (c.getContext) {
+            var ctx = canvas.getContext('2d')
+            ctx.beginPath();
+
+            ctx.lineWidth = 5
+            ctx.strokeStyle = "#0A3871";
+            ctx.moveTo(0, 295);
+            ctx.lineTo(300, 295);
+
+            ctx.moveTo(50, 5);
+            ctx.lineTo(50, 295);
+
+            ctx.moveTo(48, 5)
+            ctx.lineTo(177, 5)
+
+            ctx.moveTo(175, 5)
+            ctx.lineTo(175, 55)
+            ctx.stroke();
+            ctx.closePath()
+            ctx.beginPath()
+        }
+    </script>
+</body>
+
+</html>

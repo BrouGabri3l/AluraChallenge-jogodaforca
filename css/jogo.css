@@ -1,0 +1,50 @@
+span{
+    text-transform: uppercase;
+}
+.letter{
+    text-align: center;
+    margin: 0.2em;
+    font-size: 3em;
+    height: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.letter::after{
+    content: "";
+    display: flex;
+    width: 2em;
+    height: 0.1em;
+    border-radius: 5px;
+    background-color: #0A3871;
+}
+.wrongletter{
+    font-size:1em;
+}
+.letras{
+    height: 150px;
+    align-items: flex-end;
+}
+@media(max-width:768px){
+    .letras{
+        flex-wrap: nowrap;
+        margin:1em;
+    }
+    .letter::after{
+        width: 1em;
+    }
+}
+@media(max-width:425px){
+    .letter{
+        font-size: 2.5em;
+    }
+    .letter::after{
+        width: 0.75em;
+    }
+}
+.win{
+    color:#26c418;
+}
+.lose{
+    color:#a61919;
+}

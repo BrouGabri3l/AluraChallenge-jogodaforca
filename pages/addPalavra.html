@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="../js/index.js"></script>
+    <script src="https://kit.fontawesome.com/03afb30928.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Alura Jogo da Forca</title>
+</head>
+
+<body>
+    <header></header>
+    <div class="container">
+
+        <main>
+            <textarea name="text" maxlength="8" placeholder="Digite uma palavra"></textarea>
+            <span> <i class="fa-solid fa-circle-info"></i> Palavras com mais de 3 letras e menos que 9 e sem
+                acento</span>
+
+            <div>
+                <button class="color" onclick="addPalavra()">
+                    Salvar e Começar
+                </button>
+                <button onclick='window.location.assign("/index.html")'">Cancelar</button>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
