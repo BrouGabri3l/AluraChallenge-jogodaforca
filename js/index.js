@@ -7,6 +7,9 @@ let resultado = document.querySelector('main h2')
 let botaoDesistir = document.getElementById('desistir')
 let palavrasCriadas = JSON.parse(localStorage.getItem("palavra"))
 let campoAdicionar = document.querySelector("textarea")
+const keydown = new Audio("../src/sounds/keydown.wav")
+const win = new Audio("../src/sounds/victory.wav")
+const lose = new Audio("../src/sounds/lose.wav")
 
 function addPalavra() {
     console.log(campoAdicionar)
@@ -20,8 +23,6 @@ function addPalavra() {
 
 }
 function selectPalavra(wordList) {
-
-    console.log(wordList)
     const random = Math.floor(Math.random() * wordList.length)
     return wordList[random]
 }
@@ -35,7 +36,6 @@ function criarCampos(palavra) {
 function iniciarJogo() {
 
     palavraSelecionada = selectPalavra([...palavras, ...palavrasCriadas])
-    console.log(palavraSelecionada)
     criarCampos(palavraSelecionada)
 }
 function verificaLetra(key) {
@@ -55,32 +55,32 @@ function adicionaErro(key) {
     switch (err.length) {
         case 1:
 
-            ctx.arc(175, 85, 30, 0, 2 * Math.PI)
+            ctx.arc(150, 45, 20, 0, 2 * Math.PI)
             ctx.stroke()
             break;
         case 2:
-            ctx.moveTo(175, 115)
-            ctx.lineTo(175, 195)
+            ctx.moveTo(150, 65)
+            ctx.lineTo(150, 130)
             ctx.stroke()
             break;
         case 3:
-            ctx.moveTo(175, 135)
-            ctx.lineTo(125, 175)
+            ctx.moveTo(150, 75)
+            ctx.lineTo(120, 115)
             ctx.stroke()
             break;
         case 4:
-            ctx.moveTo(175, 135)
-            ctx.lineTo(225, 175)
+            ctx.moveTo(150, 75)
+            ctx.lineTo(180, 115)
             ctx.stroke()
             break;
         case 5:
-            ctx.moveTo(175, 190)
-            ctx.lineTo(125, 255)
+            ctx.moveTo(150, 130)
+            ctx.lineTo(120, 180)
             ctx.stroke()
             break;
         case 6:
-            ctx.moveTo(175, 190)
-            ctx.lineTo(225, 255)
+            ctx.moveTo(150, 130)
+            ctx.lineTo(180, 180)
             ctx.stroke()
             perdeu()
             break;
@@ -100,6 +100,8 @@ function desistir() {
 function perdeu() {
     resultado.classList.add("lose")
     resultado.textContent = "Você Perdeu!"
+    botaoDesistir.style.display = 'none'
+    lose.play()
 }
 function salvaLetra(key) {
     const letras = document.querySelectorAll('.letter')
@@ -112,6 +114,7 @@ function salvaLetra(key) {
 
         }
         if (acertos.length == palavraSelecionada.length) {
+            win.play()
             resultado.classList.add("win")
             resultado.textContent = "Você Ganhou!"
             botaoDesistir.style.display = 'none'
@@ -120,8 +123,11 @@ function salvaLetra(key) {
 }
 
 document.addEventListener('keydown', (e) => {
+
     if (err.length < 6) {
+
         if (e.keyCode >= 65 && e.keyCode < 91 && !acertos.includes(e.key) && acertos.length < palavraSelecionada.length) {
+            keydown.play()
             verificaLetra(e.key)
         }
     }

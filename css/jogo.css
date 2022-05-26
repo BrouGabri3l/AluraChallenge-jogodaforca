@@ -21,8 +21,9 @@ span{
 .wrongletter{
     font-size:1em;
 }
+
 .letras{
-    height: 150px;
+    height: 75px;
     align-items: flex-end;
 }
 @media(max-width:768px){
@@ -32,6 +33,9 @@ span{
     }
     .letter::after{
         width: 1em;
+    }
+    main{
+        justify-content: flex-start;
     }
 }
 @media(max-width:425px){

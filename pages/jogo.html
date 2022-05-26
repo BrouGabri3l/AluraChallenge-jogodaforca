@@ -12,50 +12,62 @@
 </head>
 
 <body onload="iniciarJogo()">
-    <header></header>
+    <header>
+        <img src="../src/img/svgLogo.svg" alt="Logo">
+    </header>
     <div class="container">
         <main class="center">
-            <canvas id="canvas" height="300"></canvas>
+            <canvas id="canvas" width="300" height="200"></canvas>
             <h2></h2>
             <div class="letras container">
             </div>
 
-            <div class="letraerrada container">
+            <div class="letraerrada">
                 <span class="wrongletter"></span>
+
+            </div>
+            <div class="container">
+
+                <button class="color" onClick="document.location.reload(true);">Novo Jogo</button>
+                <button id="desistir">Desistir</button>
+
             </div>
         </main>
+
     </div>
 
+
     <div class="container">
-
-        <button class="color" onClick="document.location.reload(true);">Novo Jogo</button>
-        <button id="desistir">Desistir</button>
-
+        <footer>
+            &copy; 2022 - Gabriel Rodrigues
+        </footer>
     </div>
     <script>
         let c = document.getElementById("canvas")
         if (c.getContext) {
             var ctx = canvas.getContext('2d')
+
             ctx.beginPath();
 
             ctx.lineWidth = 5
             ctx.strokeStyle = "#0A3871";
-            ctx.moveTo(0, 295);
-            ctx.lineTo(300, 295);
+            ctx.moveTo(0, 195);
+            ctx.lineTo(300, 195);
 
             ctx.moveTo(50, 5);
-            ctx.lineTo(50, 295);
+            ctx.lineTo(50, 195);
 
             ctx.moveTo(48, 5)
-            ctx.lineTo(177, 5)
+            ctx.lineTo(153, 5)
 
-            ctx.moveTo(175, 5)
-            ctx.lineTo(175, 55)
+            ctx.moveTo(150, 5)
+            ctx.lineTo(150, 25)
             ctx.stroke();
             ctx.closePath()
             ctx.beginPath()
         }
     </script>
+
 </body>
 
 </html>
