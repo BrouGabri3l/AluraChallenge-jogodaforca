@@ -13,7 +13,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
-    padding:3em 0em;
+    padding:1.5em 0em;
 }
 
 span, p{
@@ -31,27 +31,26 @@ h2{
     color:#343A40;
     font-size: 24px;
 }
-header,footer{
+header{
     padding:0.5em 0.5em;
     height: 30px;
 }
-footer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-}
+
 main{
     
     width: 50vw;
-    height: 65vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin:1em;
     max-width: 1200px;
     max-height: 800px;
+}
+footer div{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
 }
 button{
     border-radius: 18px;

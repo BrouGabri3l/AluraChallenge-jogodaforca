@@ -102,6 +102,10 @@ function perdeu() {
     resultado.textContent = "Você Perdeu!"
     botaoDesistir.style.display = 'none'
     lose.play()
+    const letras = document.querySelectorAll('.letter')
+    palavraSelecionada.toLowerCase().split('').forEach((letra, i) => {
+        letras[i].innerHTML = letra
+    })
 }
 function salvaLetra(key) {
     const letras = document.querySelectorAll('.letter')
